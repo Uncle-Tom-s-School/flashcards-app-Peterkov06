@@ -6,17 +6,28 @@ const Flashcard = (props: { card: CardType }) => {
   const ctx = React.useContext(CardsContext);
   const [isFlipped, setIsFlipped] = React.useState(false);
 
+  const bg_color =
+    props.card.points > 0
+      ? "var(--green)"
+      : props.card.points < 0
+      ? "var(--red)"
+      : "white";
+
   return (
     <div
       className={isFlipped ? "flipcard-flip flipcard" : "flipcard"}
       onClick={() => setIsFlipped(!isFlipped)}
     >
-      <div className="flipcard-inner">
+      <div className="flipcard-inner" style={{ backgroundColor: bg_color }}>
         <div className="flipcard-front col center">
-          <h2>{props.card.question}</h2>
+          <h2 style={{ color: bg_color === "white" ? "black" : "white" }}>
+            {props.card.question}
+          </h2>
         </div>
         <div className="flipcard-back col center">
-          <div className="question-num-bar">{ctx.currentCardId + 1}</div>
+          <div className="question-num-bar">
+            <span className="bold">{ctx.currentCardId + 1}</span>
+          </div>
           <h2>{props.card.answer}</h2>
           <div className="row space-evenly">
             <div className="col center btn" onClick={() => ctx.nextCard()}>

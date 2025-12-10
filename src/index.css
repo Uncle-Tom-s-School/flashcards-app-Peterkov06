@@ -116,7 +116,6 @@ body{
 
 .flipcard-front
 {
-  background-color: var(--green);
   color: white;
   font-size: 2rem;
 }
