@@ -24,17 +24,19 @@ function App() {
           max={ctx.cards.length}
         ></meter>
       </div>
-      <div className="col">
-        <input
-          className="btn interact_btn"
-          type="button"
-          value="Új gyakorlás indítása"
-        />
-        <input
-          className="btn interact_btn"
-          type="button"
-          value="Új kártya hozzáadása"
-        />
+      <div className="row self-end">
+        <div className="col" style={{ gap: 10 }}>
+          <input
+            className="btn interact_btn bold"
+            type="button"
+            value="Új gyakorlás indítása"
+          />
+          <input
+            className="btn interact_btn bold"
+            type="button"
+            value="Új kártya hozzáadása"
+          />
+        </div>
       </div>
     </div>
   );
